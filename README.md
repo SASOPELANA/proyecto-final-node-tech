@@ -9,4 +9,12 @@
     </picture>
 </p>
 
+<p>
 Proyecto final, curso de NodeJS, brindado por Talento Tech - Agencia de Habilidades para el Futuro.
+<p/>
+
+## 🛠️ 🧰 Herramientas utilizadas. 👨🏽‍🔧
+
+- NodeJS
+- Express
+- Nodemon
