@@ -1,5 +1,5 @@
 {
-  "name": "clase-10",
+  "name": "preyecto-final-node",
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
@@ -9,9 +9,9 @@
     "dev": "nodemon index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Sergio Alejandro Sopelana",
   "license": "MIT",
-  "description": "",
+  "description": "Proyecto Final NodeJS.",
   "dependencies": {
     "express": "^5.1.0"
   },
