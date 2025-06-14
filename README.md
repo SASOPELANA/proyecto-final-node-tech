@@ -16,5 +16,6 @@ Proyecto final, curso de NodeJS, brindado por Talento Tech - Agencia de Habilida
 ## 🛠️ 🧰 Herramientas utilizadas. 👨🏽‍🔧
 
 - NodeJS
+- JavaScript
 - Express
 - Nodemon
