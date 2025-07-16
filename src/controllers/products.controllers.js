@@ -7,8 +7,10 @@
 import * as model from "../models/products.model.js";
 
 // GET ALL
-export const getAllProducts = (req, res) => {
-	res.json(model.getAllProducts());
+export const getAllProducts = async (req, res) => {
+	const products = await model.getAllProducts();
+
+	res.json(products);
 };
 
 // SEARCH

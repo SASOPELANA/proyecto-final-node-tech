@@ -15,9 +15,20 @@ const products = JSON.parse(json);
 
 // console.log(products);
 
+// Firestore - Firebase
+import { db } from "./data.js";
+import { collection, getDocs } from "firebase/firestore";
+
+const productsCollection = collection(db, "products");
+
 // get all
-export const getAllProducts = () => {
-	return products;
+export const getAllProducts = async () => {
+	try {
+		const snapshot = await getDocs(productsCollection);
+		return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+	} catch (error) {
+		console.error(error);
+	}
 };
 
 // get id
