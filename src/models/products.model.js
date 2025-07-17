@@ -17,49 +17,56 @@ const products = JSON.parse(json);
 
 // Firestore - Firebase
 import { db } from "./data.js";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, doc, getDoc } from "firebase/firestore";
 
 const productsCollection = collection(db, "products");
 
 // get all
 export const getAllProducts = async () => {
-	try {
-		const snapshot = await getDocs(productsCollection);
-		return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-	} catch (error) {
-		console.error(error);
-	}
+  try {
+    const snapshot = await getDocs(productsCollection);
+    return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 // get id
-export const getProductById = (id) => {
-	return products.find((item) => item.id === id);
+export const getProductById = async (id) => {
+  try {
+    const productRef = doc(productsCollection, id);
+    const snapshot = await getDoc(productRef);
+    console.log("Snapshot:", snapshot.exists(), snapshot.data());
+    return snapshot.exists() ? { id: snapshot.id, ...snapshot.data() } : null;
+  } catch (error) {
+    console.error(error);
+  }
 };
 
 // post
 export const postProduct = (data) => {
-	const newProduct = {
-		id: products.length + 1,
-		...data,
-	};
+  const newProduct = {
+    id: products.length + 1,
+    ...data,
+  };
 
-	products.push(newProduct);
-	// Escribir en el json o archivo
-	fs.writeFileSync(jsonPath, JSON.stringify(products));
-	return newProduct;
+  products.push(newProduct);
+  // Escribir en el json o archivo
+  fs.writeFileSync(jsonPath, JSON.stringify(products));
+  return newProduct;
 };
 
 // Delete
 export const deleteProductId = (id) => {
-	const productIndex = products.findIndex((p) => p.id === id);
+  const productIndex = products.findIndex((p) => p.id === id);
 
-	if (productIndex != -1) {
-		const product = products.splice(productIndex, 1);
+  if (productIndex != -1) {
+    const product = products.splice(productIndex, 1);
 
-		fs.writeFileSync(jsonPath, JSON.stringify(products));
+    fs.writeFileSync(jsonPath, JSON.stringify(products));
 
-		return product;
-	} else {
-		return null;
-	}
+    return product;
+  } else {
+    return null;
+  }
 };
