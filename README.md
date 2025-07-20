@@ -8,7 +8,7 @@ Este proyecto es una API REST para gestionar productos. Utiliza una combinación
 
 1.  Clona este repositorio:
     ```bash
-    git clone https://github.com/tu-usuario/tu-repositorio.git
+    git clone https://github.com/SASOPELANA/proyecto-final-node-tech.git
     ```
 2.  Instala las dependencias:
     ```bash
@@ -16,8 +16,14 @@ Este proyecto es una API REST para gestionar productos. Utiliza una combinación
     ```
 3.  Crea un archivo `.env` en la raíz del proyecto y añade las siguientes variables de entorno:
     ```
-    API_KEY=tu_api_key
-    SECRET_KEY=tu_secret_key
+     PORT=tu_puerto
+     FIREBASE_API_KEY=tu_api_key
+     FIREBASE_AUTH_DOMAIN=tu_auth_domain
+     FIREBASE_PROJECT_ID=tu_project_id
+     FIREBASE_STORAGE_BUCKET=tu_storage_bucket
+     FIREBASE_MESSAGING_SENDER_ID=tu_messaging_sender_id
+     FIREBASE_APP_ID=tu_app_id
+     JWT_SECRET=tu_jwt_secret
     ```
 4.  Inicia el servidor en modo de desarrollo:
     ```bash
@@ -66,4 +72,3 @@ El deploy de esta aplicación se realiza en [Vercel](https://vercel.com/).
 - Firebase
 - JSON Web Token (JWT)
 - Nodemon
-
