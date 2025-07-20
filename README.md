@@ -69,6 +69,7 @@ Este proyecto es una API REST para gestionar productos. Utiliza una combinación
 
 - **POST /products**
   - Crea un nuevo producto en Firestore. Requiere autenticación (JWT).
+  - Este es el único endpoint que requiere el token JWT en el header Authorization.
 
 - **PUT /products/:id**
   - **(Local)** Actualiza un producto por su ID en el archivo `products.json`. No modifica los datos en Firestore.
@@ -106,7 +107,7 @@ Para acceder a endpoints protegidos, primero obtén un token:
 ```bash
 curl -X POST http://localhost:8080/login \
   -H "Content-Type: application/json" \
-  -d '{"usuario":"tu_usuario","password":"tu_password"}'
+  -d '{"email":"tu_email","password":"tu_password"}'
 ```
 
 La respuesta será:
@@ -117,10 +118,13 @@ La respuesta será:
 }
 ```
 
-Usa el token en el header Authorization:
+Usa el token en el header Authorization, para método POST:
 
 ```bash
-curl -H "Authorization: Bearer <JWT_TOKEN>" http://localhost:8080/products
+curl -X POST http://localhost:8080/products \
+  -H "Authorization: Bearer <JWT_TOKEN>" \
+  -H "Content-Type: application/json" \
+  -d '{"nombre":"Ejemplo","precio":100,"description": "ejemplo","categories": ["ejemplo1", "ejemplo2"]}'
 ```
 
 ## 📦 Requisitos previos
