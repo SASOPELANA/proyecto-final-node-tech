@@ -79,7 +79,7 @@ Este proyecto es una API REST para gestionar productos. Utiliza una combinación
 
 ## 🚀 Deploy
 
-El deploy de esta aplicación se realiza en [Vercel](https://vercel.com/).
+El deploy de esta aplicación se realiza en [Vercel](https://proyecto-final-node-tech.vercel.app).
 
 ## 🛠️ Herramientas utilizadas
 
