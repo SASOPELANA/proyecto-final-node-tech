@@ -88,6 +88,8 @@ El deploy de esta aplicación se realiza en [Vercel](https://vercel.com/).
 - Firebase
 - JSON Web Token (JWT)
 - Nodemon
+- Cors
+- Dotenv
 
 ## 📁 Estructura del proyecto
 
