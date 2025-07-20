@@ -33,6 +33,7 @@ Este proyecto es una API REST para gestionar productos. Utiliza una combinación
     ```bash
     npm start
     ```
+5.  Accede a la API en http://localhost:8080
 
 ## Endpoints de la API
 
